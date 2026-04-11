@@ -12,8 +12,8 @@ const app = express();
 const port = 4000;
 
 const allowedorigins = [
-    "http://localhost:5173",
-    "http://localhost:5174",
+    "https://medicare-eight-nu.vercel.app",
+    "https://medicare-u5uv.vercel.app",
 ];
 
 app.use(cors(
