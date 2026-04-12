@@ -7,16 +7,27 @@ import doctorRouter from './routes/doctorRouter.js';
 import serviceRouter from './routes/serviceRouter.js';
 import appointmentRouter from './routes/appointmentRouter.js';
 import serviceAppointmentRouter from './routes/serviceAppointmentRouter.js';
-const app = express();
 import path from "path";
+
+const app = express();
+<<<<<<< HEAD
+import path from "path";
+=======
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+
+>>>>>>> 3a496d2436f45e8c4c170246b2f8e13308c3827f
 
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 const port = 4000;
 
 const allowedorigins = [
     "https://medicare-eight-nu.vercel.app",
+<<<<<<< HEAD
     "http://localhost:5173",
     "http://localhost:5174",
+=======
+    "https://medicare-u5uv.vercel.app",
+>>>>>>> 3a496d2436f45e8c4c170246b2f8e13308c3827f
 ];
 
 app.use(cors(
