@@ -8,10 +8,13 @@ import serviceRouter from './routes/serviceRouter.js';
 import appointmentRouter from './routes/appointmentRouter.js';
 import serviceAppointmentRouter from './routes/serviceAppointmentRouter.js';
 const app = express();
+import path from "path";
 
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 const port = 4000;
 
 const allowedorigins = [
+    "https://medicare-eight-nu.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174",
 ];
