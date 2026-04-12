@@ -1,5 +1,5 @@
 import express from "express";
-import upload from "../config/multer.js";
+import upload from "../middlewares/multer.js";
 
 import{createDoctor, deleteDoctor, doctorLogin, getDoctorById, getDoctors, toggleAvailability, updateDoctor} from '../controllers/doctorController.js';
 import doctorAuth from "../middlewares/doctorAuth.js";
