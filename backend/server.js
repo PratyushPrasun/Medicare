@@ -7,7 +7,11 @@ import doctorRouter from './routes/doctorRouter.js';
 import serviceRouter from './routes/serviceRouter.js';
 import appointmentRouter from './routes/appointmentRouter.js';
 import serviceAppointmentRouter from './routes/serviceAppointmentRouter.js';
+import path from "path";
+
 const app = express();
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+
 
 const port = 4000;
 
