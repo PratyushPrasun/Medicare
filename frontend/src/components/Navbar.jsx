@@ -147,8 +147,11 @@ const Navbar = () => {
               })}
 
               <Show when="signed-out">
-                <Link to='/doctor-admin/login' className={navbarStyles.doctorAdminButton} onClick={()=> setIsOpen(false)}>
-                Doctor Admin
+                <Link to='/doctor-admin/login' className={navbarStyles.mobileDoctorAdminButton} onClick={()=> setIsOpen(false)}>
+                <User className={navbarStyles.doctorAdminIcon}/>
+                <span>
+                  Doctor Admin
+                </span>
                 </Link>
 
                 <div className={navbarStyles.mobileLoginContainer}>
