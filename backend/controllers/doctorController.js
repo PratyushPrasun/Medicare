@@ -369,11 +369,13 @@ export async function doctorLogin(req,res) {
             message:"Invalid Creds"
         });
 
-        if(doc.password !== password)return res.status(401).json({
-            success:false,
-            message:"Invalid Creds"
-        });
-
+      const isMatch = await bcrypt.compare(password, doc.password);
+        if (!isMatch) {
+       return res.status(401).json({
+       success: false,
+       message: "Invalid Creds"
+    });
+  }
         const secret = process.env.JWT_SECRET;
         if(!secret)return res.status(500).json({
              success: false, 
