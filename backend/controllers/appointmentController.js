@@ -415,6 +415,13 @@ export const updateAppointment = async(req, res) =>{
             success:false,
             message:"Appointment not found"
         });
+        const clerkUserId = resolveClerkUserId(req);
+        if(!clerkUserId || appt.createdBy !== clerkUserId){
+          return res.status(403).json({
+            success:false,
+            message:"Not authorized to update this appointment"
+          });
+        }
         //updateAppointment 
     const terminal = appt.status === "Completed" || appt.status === "Canceled";
     if (terminal && body.status && body.status !== appt.status) {
@@ -455,6 +462,13 @@ export const cancelAppointment = async(req,res) => {
             success:false,
             message:"Appointment not found"
         });
+        const clerkUserId = resolveClerkUserId(req);
+        if(!clerkUserId || appt.createdBy !== clerkUserId){
+          return res.status(403).json({
+            success:false,
+            message:"You are not authorized to cancel this appointment"
+          });
+        }
         appt.status = "Canceled";
         await appt.save();
         return res.json({success:true, appointment:appt})
